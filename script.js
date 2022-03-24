@@ -14,3 +14,4 @@ alert("начать первый урок?");
 
 console.log("privet");
 
+// change
