@@ -9,6 +9,8 @@ const appData = {
     adaptive: true,
     rollback: 10,
     allServicePrices: 0,
+    fullPrice: 0,
+    servicePercentPrice: 0,
     service1: '',
     service2: '',
 
@@ -16,21 +18,25 @@ const appData = {
         return !isNaN(parseFloat(num)) && isFinite(num);
     },
 
-
     start: function () {
-        appData.asking(); {
-            appData.title = prompt("Как называется ваш проект?", " КаЛьКулятор Верстки");
-            appData.screens = prompt("Какие типы экранов нужно разработать?", " Простые, Сложные");
-            do {
-                appData.screenPrice = prompt("Сколько будет стоить данная работа?");
-            } while (!appData.isNumber(appData.screenPrice));
-            appData.adaptive = confirm("Нужен ли адаптив на сайте?");
-        }
-        appData.logger = {
-            fullPrice: 0,
-            servicePercentPrice: 0,
-        };
+        appData.asking();
+        appData.getAllServicePrices();
+        appData.getFullPrice();
+        appData.getServicePercentPrice();
+        appData.getTitle();
+        appData.getRollbackMessage();
+        appData.logger();
     },
+
+    asking: function () {
+        appData.title = prompt("Как называется ваш проект?", " КаЛьКулятор Верстки");
+        appData.screens = prompt("Какие типы экранов нужно разработать?", " Простые, Сложные");
+        do {
+            appData.screenPrice = prompt("Сколько будет стоить данная работа?");
+        } while (!appData.isNumber(appData.screenPrice));
+        appData.adaptive = confirm("Нужен ли адаптив на сайте?");
+    },
+
     getAllServicePrices: function () {
         let sum = 0;
         for (let i = 0; i < 2; i++) {
@@ -66,12 +72,28 @@ const appData = {
         } else {
             return "Что то пошло не так";
         }
-    }
+
+    },
+    logger: function () {
+        console.log(appData.getAllServicePrices());
+        console.log(appData.getFullPrice());
+        console.log(appData.getServicePercentPrice());
+
+        // for (let prop in appData) {
+        //     console.log("appData." + prop + " = " + appData[prop]);
+        // }
+    },
+    // allServicePrices = getAllServicePrices(),
+    // fullPrice = getFullPrice(),
+    // servicePercentPrice = getServicePercentPrice(),
 };
 
+appData.allServicePrices = appData.getAllServicePrices();
+appData.fullPrice = appData.getFullPrice();
+appData.servicePercentPrice = appData.getServicePercentPrice();
+
+
 appData.start();
-
-
 
 
 
