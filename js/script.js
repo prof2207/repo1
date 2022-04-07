@@ -1,7 +1,55 @@
 'use strict';
 
+const titleColl = document.getElementsByTagName('h1');
+let title1 = titleColl[0];
+console.log(title1);
+
+
+const buttons = document.getElementsByClassName('handler_btn');
+let calculate = buttons[0];
+let reset = buttons[1];
+console.log(calculate);
+console.log(reset);
+
+const plusScreen = document.querySelectorAll('.screen-btn');
+let plus = plusScreen[0];
+console.log(plus);
+
+
+// две переменные, две коллекци? Если, я правильно понял?
+const percent = document.querySelectorAll('.other-items.percent');
+console.log(percent);
+const number = document.querySelectorAll('.other-items.number');
+console.log(number);
+
+
+const range = document.querySelector('[type="range"]');
+console.log(range);
+
+const span = document.querySelector('.rollback > .range-value');
+console.log(span);
+
+const aalInput = document.getElementsByClassName('total-input');
+let input1 = aalInput[0];
+console.log(input1);
+let input2 = aalInput[1];
+console.log(input2);
+let input3 = aalInput[2];
+console.log(input3);
+let input4 = aalInput[3];
+console.log(input4);
+let input5 = aalInput[4];
+console.log(input5);
+
+let allScreen = document.querySelectorAll('.screen');
+console.log(allScreen[0]);
+
+
+
 const appData = {
     title: '',
+
+    typeScreen: '',
 
     screens: [],
     screenPrice: 0,
